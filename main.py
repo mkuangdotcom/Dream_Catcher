@@ -1,6 +1,8 @@
 # Image Processing
 import cv2              # For computer vision and image processing
 import numpy as np      # Support for large, multi-dimensional arrays and matrices of numerical data and collection of mathematical functions
+import mediapipe as mp  # For face detection
+import face_recognition # For face recognition
 
 '''Start video capturing and ends when the user pressed ESC key'''
 def start_video_capture():   
