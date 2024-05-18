@@ -8,6 +8,9 @@ cap = cv2.VideoCapture(0)
 
 while cap.isOpened():
     success, image = cap.read()
+    if not success:
+        print("Failed to read frame from camera. Make sure the camera is working correctly.")
+        continue
 
     # Flip the image horizontally for a later selfie-view display
     # Also convert the color space from BGR to RGB
@@ -31,6 +34,15 @@ while cap.isOpened():
 
     if results.multi_face_landmarks:
         for face_landmarks in results.multi_face_landmarks:
+            # Calculate the bounding box coordinates
+            min_x = min(int(lm.x * img_w) for lm in face_landmarks.landmark)
+            min_y = min(int(lm.y * img_h) for lm in face_landmarks.landmark)
+            max_x = max(int(lm.x * img_w) for lm in face_landmarks.landmark)
+            max_y = max(int(lm.y * img_h) for lm in face_landmarks.landmark)
+
+            # Draw the bounding box
+            cv2.rectangle(image, (min_x, min_y), (max_x, max_y), (0, 255, 0), 2)
+            
             for idx, lm in enumerate(face_landmarks.landmark):
                 if idx == 33 or idx == 263 or idx == 1 or idx == 61 or idx == 291 or idx == 199:
                     if idx == 1:
