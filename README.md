@@ -17,14 +17,14 @@ pip install matplotlib
 <br>
 
 ## How It Works?  
-Video Input: The system takes a video of a person sleeping as input.
-Head Detection: Using OpenCV and MediaPipe, the program detects the head and tracks its movement.
-Data Collection: The head movement data is collected and organized into a table using Pandas.
-Visualization: The collected data is then visualized using Matplotlib to show the patterns and extent of head movements during sleep.
+Video Input: The system takes a video of a person sleeping as input. <br>
+Head Detection: Using OpenCV and MediaPipe, the program detects the head and tracks its movement. <br>
+Data Collection: The head movement data is collected and organized into a table using Pandas. <br>
+Visualization: The collected data is then visualized using Matplotlib to show the patterns and extent of head movements during sleep. <br>
 <br>
 
 # Key Points in the Code
-Import Libraries: Essential libraries for computer vision, numerical computations, data manipulation, and visualization are imported.
+**Import Libraries:** Essential libraries for computer vision, numerical computations, data manipulation, and visualization are imported.
 
 ```sh
 import cv2
@@ -34,3 +34,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from head_detection import detect_head
 ```
+
+<br>
+
+**Head Detection:** The detect_head function from head_detection.py is used to detect the head in each frame of the video.
+
+```sh
+def detect_head(frame):
+    # Code for head detection using MediaPipe
+    ...
+```
+
+<br>
