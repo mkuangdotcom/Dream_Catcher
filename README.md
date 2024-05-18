@@ -21,14 +21,16 @@ Video Input: The system takes a video of a person sleeping as input.
 Head Detection: Using OpenCV and MediaPipe, the program detects the head and tracks its movement.
 Data Collection: The head movement data is collected and organized into a table using Pandas.
 Visualization: The collected data is then visualized using Matplotlib to show the patterns and extent of head movements during sleep.
-Key Points in the Code
+<br>
+
+# Key Points in the Code
 Import Libraries: Essential libraries for computer vision, numerical computations, data manipulation, and visualization are imported.
 
-python
-Copy code
+```sh
 import cv2
 import numpy as np
 import mediapipe as mp
 import pandas as pd
 import matplotlib.pyplot as plt
 from head_detection import detect_head
+```
