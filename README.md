@@ -85,7 +85,19 @@ plt.title('Head Movements During Sleep')
 plt.show()
 ```
 
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/mkuangdotcom/Dream_Catcher/assets/150900178/e260c146-f2ac-456a-9b1d-4487aacc4074" width="700"/>
+        <br>
+        Example Output
+      </td>
+    </tr>
+  </table>
+</div>
 <br>
+
 
 
 
