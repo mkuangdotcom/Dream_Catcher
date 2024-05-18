@@ -57,3 +57,14 @@ data = pd.DataFrame(columns=['timestamp', 'head_position'])
 
 <br>
 
+**Visualization:** Matplotlib is used to plot the head movements over time.
+
+```sh
+plt.plot(data['timestamp'], data['head_position'])
+plt.xlabel('Time')
+plt.ylabel('Head Position')
+plt.title('Head Movements During Sleep')
+plt.show()
+```
+
+<br>
