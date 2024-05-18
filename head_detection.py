@@ -114,5 +114,8 @@ def detect_head():
 
         if cv2.waitKey(5) & 0xFF == 27:
             break
+        
+        # Return the head position
+        return rot_vec, trans_vec
 
     cap.release()
