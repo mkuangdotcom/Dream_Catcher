@@ -68,3 +68,12 @@ plt.show()
 ```
 
 <br>
+
+
+
+## Credits
+
+This project was inspired by the work of Irfan Alghani Khalid on head pose estimation. You can read more about it on [Towards Data Science](https://towardsdatascience.com/head-pose-estimation-using-python-d165d3541600).
+
+[![Read more on Towards Data Science](https://img.shields.io/badge/Towards%20Data%20Science-Read%20More-blue)](https://towardsdatascience.com/head-pose-estimation-using-python-d165d3541600)
+
