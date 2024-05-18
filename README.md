@@ -46,3 +46,14 @@ def detect_head(frame):
 ```
 
 <br>
+
+**Data Processing:** The detected head positions are stored in a Pandas DataFrame for further analysis.
+
+```sh
+data = pd.DataFrame(columns=['timestamp', 'head_position'])
+# Code to populate the DataFrame
+...
+```
+
+<br>
+
