@@ -2,6 +2,8 @@
 import cv2  # For computer vision and image processing
 import numpy as np  # Support for large, multi-dimensional arrays and matrices of numerical data and collection of mathematical functions
 import mediapipe as mp  # For face mesh detection
+import pandas as pd  # For creating a table of head movements
+import matplotlib.pyplot as plt  # For plotting graphs
 from head_detection import detect_head  # Import the head detection function
 
 def start_video_capture():
@@ -10,6 +12,9 @@ def start_video_capture():
     # Initialize Mediapipe Face Mesh
     mp_face_mesh = mp.solutions.face_mesh
     face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+
+    # List to store head movement data
+    head_movements = []
 
     while True:
         ret, frame = cap.read()  # Capture frame-by-frame
@@ -101,6 +106,14 @@ def start_video_capture():
                 else:
                     text = "Forward"
 
+                # Append head movement data
+                head_movements.append({
+                    "frame": len(head_movements),
+                    "x_angle": x,
+                    "y_angle": y,
+                    "direction": text
+                })
+
                 # Display the nose direction
                 nose_3d_projection, jacobian = cv2.projectPoints(nose_3d, rot_vec, trans_vec, cam_matrix, dist_matrix)
 
@@ -121,6 +134,32 @@ def start_video_capture():
     # Release the camera and destroy all windows after the loop has finished
     cap.release()
     cv2.destroyAllWindows()
+
+    # Create a DataFrame from the head movements data
+    df = pd.DataFrame(head_movements)
+
+    # Plot the head movement directions over time
+    plt.figure(figsize=(14, 6))
+
+    # Plot for head directions
+    plt.subplot(1, 2, 1)
+    plt.plot(df['frame'], df['direction'], marker='o')
+    plt.title('Head Movement Direction Over Time')
+    plt.xlabel('Frame')
+    plt.ylabel('Direction')
+    plt.xticks(rotation=45)
+
+    # Plot for head angles
+    plt.subplot(1, 2, 2)
+    plt.plot(df['frame'], df['x_angle'], label='X Angle', marker='o')
+    plt.plot(df['frame'], df['y_angle'], label='Y Angle', marker='x')
+    plt.title('Head Rotation Angles Over Time')
+    plt.xlabel('Frame')
+    plt.ylabel('Angle (degrees)')
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
 
 # Call the function to start the video capture
 start_video_capture()
