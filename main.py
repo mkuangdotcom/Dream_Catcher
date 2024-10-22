@@ -1,9 +1,9 @@
 # Image Processing
 import cv2  # For computer vision and image processing
 import numpy as np  # Support for large, multi-dimensional arrays and matrices of numerical data and collection of mathematical functions
-import mediapipe as mp  # For face mesh detection
-import pandas as pd  # For creating a table of head movements
-import matplotlib.pyplot as plt  # For plotting graphs
+import mediapipe as mp  # type: ignore # For face mesh detection
+import pandas as pd  # type: ignore # For creating a table of head movements
+import matplotlib.pyplot as plt  #type: ignore For plotting graphs
 from head_detection import detect_head  # Import the head detection function
 
 def start_video_capture():
