@@ -161,5 +161,4 @@ def start_video_capture():
     plt.tight_layout()
     plt.show()
 
-# Call the function to start the video capture
 start_video_capture()
